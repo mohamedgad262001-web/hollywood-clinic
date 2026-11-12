@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://cbbxkcnwbivspvcdsldb.supabase.co/rest/v1/rpc/ha_ingest_session",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "sb_publishable_PASTE-YOURS"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ payload: { secret: 'PASTE-INGEST-SECRET', event: 'done', session: $json.body } }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "7c1d1a10-0002-4a00-9000-0000000000a2",
+      "name": "Session → dashboard (done)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1728,
+        -560
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000,
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "connections": {}
+}
